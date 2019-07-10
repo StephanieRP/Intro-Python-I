@@ -22,3 +22,18 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+
+current_month = datetime.now()
+calendar = calendar.TextCalendar()
+
+
+if len(sys.argv) == 1:
+    calendar.prmonth(current_month.year, current_month.month)
+elif len(sys.argv) == 2:
+    calendar.prmonth(current_month.year, int(sys.argv[1]))
+elif len(sys.argv) == 3:
+    calendar.prmonth(int(sys.argv[2]), int(sys.argv[1]))
+else:
+    print(
+        "Expected a maximum of two arguments in the form of `cal.py month [year]`")
